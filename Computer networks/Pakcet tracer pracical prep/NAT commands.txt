@@ -1,0 +1,16 @@
+access-list 1 permit 168.192.0.0 (retea) 0.0.0.255 (inversul mastii, wildbit)
+ip nat inside source list 1 interface fa1/0 (cablu de la retea - outside- fastEthernet 1) overload
+int FastEthernet0 (cablu de la retea - inside - interfata)
+ip nat inside
+int fa1/0
+ip nat outside
+int fa2/0
+ip nat outside
+... (in functie de cate cabluri ai)
+CTRL-Z
+write memory
+copy run start
+[ENTER]
+
+
+---- doar pe retelele care nu au servere ------

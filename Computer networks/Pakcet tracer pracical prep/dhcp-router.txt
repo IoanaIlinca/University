@@ -1,0 +1,8 @@
+configure t
+service dhcp
+ip dhcp pool main
+network <retea> <masca>
+default-router <router ip>
+dns-server <dnsIp>
+exit
+CTRL+Z
