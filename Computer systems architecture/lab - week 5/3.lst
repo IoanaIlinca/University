@@ -1,0 +1,55 @@
+     1                                  ; exercitiul 10 - a doua parte - fara semn
+     2                                  ; d - (7 - a * b + c)/ a - 6 + x/2 ; a, c - byte; b - word; d - doubleword; x - qword
+     3                                  bits 32 
+     4                                  global  start 
+     5                                  
+     6                                  extern  exit
+     7                                  import  exit msvcrt.dll
+     8                                  segment  data use32 class=data 
+     9 00000000 01                      	a db 1
+    10 00000001 0800                    	b dw 8
+    11 00000003 0A                      	c db 10
+    12 00000004 C8000000                	d dd 200
+    13 00000008 02000000                    aux dd 2
+    14 0000000C 5000000000000000        	x dq 80
+    15                                  segment  code use32 class=code ; segmentul de cod
+    16                                  start:
+    17 00000000 A0[00000000]                mov al, [a] ; mutam a in al
+    18 00000005 B400                        mov ah, 0 ; conversie de la al la ax fara semn
+    19 00000007 66F725[01000000]            mul word [b] ; ax = a * b
+    20                                      
+    21 0000000E B307                        mov bl, 7 ; bl = 7
+    22 00000010 021D[03000000]              add bl, [c] ; bl = 7 + c
+    23 00000016 B700                        mov bh, 0 ; conversie de la bl la bx fara semn
+    24                                      
+    25 00000018 6629C3                      sub bx, ax ; bx = 7 - a * b + c
+    26 0000001B 6689D8                      mov ax, bx ; ax = 7 - a * b + c
+    27 0000001E F635[00000000]              div byte [a]; al = (7 - a * b + c) / a, ah = (7 - a * b + c) % a
+    28                                      
+    29 00000024 0406                        add al, 6 ; al = (7 - a * b + c) / a + 6
+    30 00000026 B400                        mov ah, 0 ; conversie fara semn de la al la ax
+    31 00000028 6689C3                      mov bx, ax ; bx = (7 - a * b + c) / a + 6
+    32 0000002B 66B90000                    mov cx, 0 ; conversie fara semn de la bx la cx:bx
+    33                                      
+    34 0000002F FF35[04000000]              push dword [d]
+    35 00000035 58                          pop eax ; eax = d
+    36                                      
+    37 00000036 6651                        push cx
+    38 00000038 6653                        push bx
+    39 0000003A 5B                          pop ebx ; ebx  = (7 - a * b + c) / a + 6
+    40                                      
+    41 0000003B 29D8                        sub eax, ebx ; no overflow, because of the sizes of the operands in ebx, eax = d - (7 - a * b + c) / a - 6
+    42 0000003D BA00000000                  mov edx, 0 ; edx:eax = d - (7 - a * b + c) / a - 6
+    43                                      
+    44 00000042 89C3                        mov ebx, eax 
+    45 00000044 89D1                    	mov ecx, edx  ; ecx:ebx = d - (7 - a * b + c) / a - 6
+    46 00000046 A1[0C000000]                mov eax, dword [x]
+    47 0000004B 8B15[10000000]              mov edx, dword [x + 4]
+    48 00000051 F735[08000000]              div dword [aux] ; eax = x/2, edx = x % 2
+    49                                      
+    50 00000057 01D8                        add eax, ebx ; eax = d - (7 - a * b + c) / a - 6 + x / 2
+    51                                      
+    52                                      
+    53                                  	
+    54 00000059 6A00                    	push dword 0 ;se pune pe stiva codul de retur al functiei exit
+    55 0000005B FF15[00000000]          	call [exit] ;apelul functiei sistem exit pentru terminarea executiei programului

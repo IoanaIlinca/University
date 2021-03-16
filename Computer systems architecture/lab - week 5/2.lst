@@ -1,0 +1,36 @@
+     1                                  ; exercitiul 10, prima parte - cu semn
+     2                                  bits 32 
+     3                                  global  start 
+     4                                  
+     5                                  extern  exit 
+     6                                  import  exit msvcrt.dll
+     7                                        
+     8                                  segment  data use32 class=data 
+     9 00000000 0A                      	a db 10
+    10 00000001 0200                    	b dw 2
+    11 00000003 0F000000                	c dd 15
+    12 00000007 0A00000000000000        	d dq 10
+    13                                  segment  code use32 class=code 
+    14                                  start: 
+    15 00000000 A0[00000000]            	mov al, [a] ; al = a
+    16 00000005 6698                        cbw ; AL devine AX, cu semn
+    17 00000007 660305[01000000]            add ax, [b] ; ax = a + b
+    18 0000000E 98                          cwde ; AX devine EAX, cu semn
+    19                                      
+    20 0000000F 0305[03000000]              add eax, [c] ; dx:ax = a + b + c
+    21                                      
+    22 00000015 99                          cdq ; EAX devine EDX:EAX
+    23                                      
+    24 00000016 0305[07000000]              add eax, dword [d] ; CF = 1, in caz de overflow
+    25 0000001C 1315[0B000000]              adc edx, dword [d + 4] ; se adauga si CF, edx:eax = b + c + d + a
+    26                                      
+    27 00000022 2B05[07000000]              sub eax, dword [d] ; CF = -1, in caz de overflow
+    28 00000028 1B15[0B000000]              sbb edx, dword [d + 4] ; se adauga si CF, edx:eax = b + c + d + a - d
+    29                                      
+    30 0000002E 2B05[03000000]              sub eax, [c] ;edx:eax = b + c + d + a - (d + c)
+    31                                      
+    32                                      
+    33                                      
+    34                                  	
+    35 00000034 6A00                    	push dword 0 
+    36 00000036 FF15[00000000]          	call [exit]	

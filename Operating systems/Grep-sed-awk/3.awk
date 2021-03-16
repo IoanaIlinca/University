@@ -1,0 +1,1 @@
+awk -f sumNumbers.awk randomFile

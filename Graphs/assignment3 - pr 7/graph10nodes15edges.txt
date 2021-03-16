@@ -1,0 +1,299 @@
+10 15
+9 4 64
+4 2 71
+9 0 74
+0 8 19
+8 4 59
+0 1 5 
+1 7 55
+9 5 34
+8 6 77
+9 3 74
+6 5 61
+5 1 48
+9 8 32
+6 3 88
+3 9 56
+
+5 Inf Inf Inf Inf Inf 60 19 Inf 
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf
+
+Inf Inf Inf 88 Inf 61 0 Inf Inf Inf
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf Inf Inf Inf 59 Inf 77 Inf 0 Inf
+
+74 79 Inf 74 64 34 Inf 134 32 0
+
+-1 0 -1 -1 -1 -1 -1 1 0 -1
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 6 -1 6 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 8 -1 8 -1 -1 -1
+
+9 0 -1 9 9 9 -1 1 9 -1
+
+0 5 Inf Inf Inf Inf Inf 60 19 Inf
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf
+
+Inf Inf Inf 88 Inf 61 0 Inf Inf 144
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf Inf Inf Inf 59 Inf 77 Inf 0 Inf
+
+74 79 Inf 74 64 34 Inf 134 32 0
+
+-1 0 -1 -1 -1 -1 -1 1 0 -1
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 6 -1 6 -1 -1 -1 3
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 8 -1 8 -1 -1 -1
+
+9 0 -1 9 9 9 -1 1 9 -1
+
+0 5 Inf Inf Inf Inf Inf 60 19 Inf
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf
+
+Inf Inf Inf 88 Inf 61 0 Inf Inf 144
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf Inf 130 Inf 59 Inf 77 Inf 0 Inf
+
+74 79 135 74 64 34 Inf 134 32 0
+
+-1 0 -1 -1 -1 -1 -1 1 0 -1
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 6 -1 6 -1 -1 -1 3
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 4 -1 8 -1 8 -1 -1 -1
+
+9 0 4 9 9 9 -1 1 9 -1
+
+0 5 Inf Inf Inf Inf Inf 60 19 Inf 
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf
+
+Inf 109 Inf 88 Inf 61 0 164 Inf 144
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf Inf 130 Inf 59 Inf 77 Inf 0 Inf
+
+74 79 135 74 64 34 Inf 134 32 0
+
+-1 0 -1 -1 -1 -1 -1 1 0 -1
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 5 -1 6 -1 6 -1 1 -1 3
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 4 -1 8 -1 8 -1 -1 -1
+
+9 0 4 9 9 9 -1 1 9 -1
+
+0 5 Inf Inf Inf Inf Inf 60 19 Inf 
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf
+
+Inf 109 Inf 88 Inf 61 0 164 Inf 144
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf 186 130 165 59 138 77 241 0 221
+
+74 79 135 74 64 34 Inf 134 32 0
+
+-1 0 -1 -1 -1 -1 -1 1 0 -1
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 5 -1 6 -1 6 -1 1 -1 3
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 4 6 8 6 8 1 -1 3
+
+9 0 4 9 9 9 -1 1 9 -1
+
+0 5 Inf Inf Inf Inf Inf 60 19 Inf
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf 
+
+Inf 109 Inf 88 Inf 61 0 164 Inf 144
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf 186 130 165 59 138 77 241 0 221
+
+74 79 135 74 64 34 Inf 134 32 0
+
+-1 0 -1 -1 -1 -1 -1 1 0 -1
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 5 -1 6 -1 6 -1 1 -1 3
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 4 6 8 6 8 1 -1 3
+
+9 0 4 9 9 9 -1 1 9 -1
+
+0 5 149 184 78 157 96 60 19 240
+
+Inf 0 Inf Inf Inf Inf Inf 55 Inf Inf
+
+Inf Inf 0 Inf Inf Inf Inf Inf Inf Inf
+
+Inf Inf Inf 0 Inf Inf Inf Inf Inf 56
+
+Inf Inf 71 Inf 0 Inf Inf Inf Inf Inf
+
+Inf 48 Inf Inf Inf 0 Inf 103 Inf Inf
+
+Inf 109 Inf 88 Inf 61 0 164 Inf 144
+
+Inf Inf Inf Inf Inf Inf Inf 0 Inf Inf
+
+Inf 186 130 165 59 138 77 241 0 221
+
+74 79 135 74 64 34 109 134 32 0
+
+-1 0 4 6 8 6 8 1 0 3
+
+-1 -1 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 3
+
+-1 -1 4 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 -1 -1 -1 -1 -1 1 -1 -1
+
+-1 5 -1 6 -1 6 -1 1 -1 3
+
+-1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+
+-1 5 4 6 8 6 8 1 -1 3
+
+9 0 4 9 9 9 8 1 9 -1
+
+90
+3 9 5

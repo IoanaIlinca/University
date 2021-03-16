@@ -1,0 +1,46 @@
+     1                                  bits 32 
+     2                                  
+     3                                  global start        
+     4                                  
+     5                                  extern exit               
+     6                                  import exit msvcrt.dll    
+     7                                  
+     8                                  segment data use32 class=data
+     9 00000000 616263646566                s1 DB 'a', 'b', 'c', 'd', 'e', 'f' ; declararea stringului
+    10                                      l1 equ (($ - s1) / 2 +  ($ - s1) % 2) ; lungimea stringului
+    11 00000006 3132333435                  s2 DB '1', '2', '3', '4', '5'
+    12                                      l2 equ ($ - s2) / 2
+    13                                        
+    14 0000000B 00<rept>                    d times (l1 + l2) db 0
+    15                                      
+    16                                  
+    17                                  segment code use32 class=code
+    18                                      start:
+    19 00000000 B902000000                      mov ecx, l2 ; pentru a face loopul
+    20 00000005 BE01000000                      mov esi, 1 ; index for source string
+    21 0000000A BF00000000                      mov edi, 0 ; index for destination string
+    22                                          
+    23 0000000F E311                            jecxz pas2 ; jump if condition is met la Repeta2
+    24                                          Repeta1:
+    25 00000011 8A86[06000000]                      mov al, [s2+esi] ; pozitiile pare din s2
+    26 00000017 8887[0B000000]                      mov [d + edi], al 
+    27 0000001D 47                                  inc edi ; crestem indexul destinatiei
+    28 0000001E 46                                  inc esi 
+    29 0000001F 46                                  inc esi ; crestem cu 2 indexul sursei
+    30 00000020 E2EF                            loop Repeta1    
+    31                                          
+    32                                          pas2: 
+    33 00000022 B903000000                          mov ecx, l1
+    34 00000027 BE00000000                          mov esi, 0
+    35 0000002C E311                                jecxz Sfarsit ; jump if condition is met la Sfarsit
+    36                                              Repeta2:
+    37 0000002E 8A86[00000000]                          mov al, [s1 + esi] ; pozitiile impare din s1
+    38 00000034 8887[0B000000]                          mov [d + edi], al 
+    39 0000003A 47                                      inc edi
+    40 0000003B 46                                      inc esi
+    41 0000003C 46                                      inc esi
+    42 0000003D E2EF                                loop Repeta2
+    43                                          
+    44                                          Sfarsit:
+    45 0000003F 6A00                            push    dword 0      
+    46 00000041 FF15[00000000]                  call    [exit] 

@@ -1,0 +1,32 @@
+     1                                  bits 32
+     2                                  
+     3                                  global convertOcta
+     4                                  
+     5                                  segment data use 32 class=data
+     6 00000000 0800                    	c8 dw 8
+     7 00000002 0A00                    	c10 dw 10
+     8                                  
+     9                                  segment code use32 class=code
+    10                                  	convertOcta:
+    11 00000000 6689D8                  		mov ax, bx
+    12 00000003 53                      		push ebx
+    13 00000004 66BB0000                		mov bx, 0
+    14 00000008 66BA0000                		mov dx, 0
+    15                                  		.getDigit:
+    16 0000000C 66F735[00000000]        		div word[c8]
+    17 00000013 52                      		push edx
+    18 00000014 6699                    		cwd
+    19 00000016 6643                    		inc bx
+    20 00000018 6683F800                		cmp ax, 0
+    21 0000001C 75EE                    		jne .getDigit
+    22 0000001E 66B80000                		mov ax, 0
+    23                                  
+    24                                  		.computeOcta:
+    25 00000022 66F725[02000000]        		mul word[c10]
+    26 00000029 5A                      		pop edx
+    27 0000002A 6601D0                  		add ax,dx
+    28 0000002D 664B                    		dec bx
+    29 0000002F 6683FB00                		cmp bx,0
+    30 00000033 75ED                    		jne .computeOcta
+    31 00000035 5B                      		pop ebx
+    32 00000036 C3                      		ret

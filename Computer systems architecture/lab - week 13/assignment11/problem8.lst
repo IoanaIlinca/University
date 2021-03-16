@@ -1,0 +1,80 @@
+     1                                  ; The program will use:
+     2                                  ; - the function fopen() to open/create the file
+     3                                  ; - the function fread() to read from file
+     4                                  ; - the function fclose() to close the created file.
+     5                                  
+     6                                  ; Because the fopen() call uses the file access mode "r", the file will be open for
+     7                                  ; reading. The file must exist, otherwise the fopen() call will fail.
+     8                                  ; For details about the file access modes see the section "Theory".
+     9                                  
+    10                                  bits 32
+    11                                  
+    12                                  global start
+    13                                  
+    14                                  ; declare external functions needed by our program
+    15                                  extern exit, printf, fopen, fclose, fprintf, convertOcta
+    16                                  import exit msvcrt.dll
+    17                                  import fopen msvcrt.dll
+    18                                  import fclose msvcrt.dll
+    19                                  import fprintf msvcrt.dll
+    20                                  import printf msvcrt.dll
+    21                                  
+    22                                  ; our data is declared here (the variables needed by our program)
+    23                                  segment data use32 class=data
+    24 00000000 70726F626C656D384F-         file_name db "problem8Output.txt", 0   ; filename to be read
+    24 00000009 75747075742E747874-
+    24 00000012 00                 
+    25 00000013 7700                        access_mode db "w", 0       
+    26 00000015 <res 00000004>              file_descriptor resd 1
+    27 00000019 0800                    	c8 dw 8
+    28 0000001B 0A00                    	c10 dw 10
+    29 0000001D 4E756D626572203D20-         format db 'Number = %d Base8 = %d ASCII = %c',0xa,0
+    29 00000026 256420426173653820-
+    29 0000002F 3D2025642041534349-
+    29 00000038 49203D2025630A00   
+    30                                  ; our code starts here
+    31                                  segment code use32 class=code
+    32                                      start:
+    33                                          ; call fopen() to create the file
+    34                                          ; fopen() will return a file descriptor in the EAX or 0 in case of error
+    35                                          ; eax = fopen(file_name, access_mode)
+    36 00000000 68[13000000]                    push dword access_mode     
+    37 00000005 68[00000000]                    push dword file_name
+    38 0000000A FF15[00000000]                  call [fopen]
+    39 00000010 83C408                          add esp, 4*2                ; clean-up the stack
+    40                                  
+    41 00000013 A3[15000000]                    mov [file_descriptor], eax  ; store the file descriptor returned by fopen
+    42                                  
+    43                                          ; check if fopen() has successfully created the file (EAX != 0)
+    44 00000018 83F800                          cmp eax, 0
+    45 0000001B 742E                            je final
+    46 0000001D BB20000000                      mov ebx,32
+    47                                  		
+    48                                  		.write:
+    49 00000022 B800000000              		mov eax,0
+    50 00000027 E8(00000000)            		call convertOcta
+    51                                  		
+    52                                  		
+    53 0000002C 53                      		push ebx
+    54 0000002D 50                      		push eax
+    55 0000002E 53                      		push ebx
+    56 0000002F 68[1D000000]            		push format
+    57 00000034 FF35[15000000]          		push dword[file_descriptor]
+    58 0000003A FF15[00000000]          		call [fprintf]
+    59 00000040 83C414                  		add esp,4*5
+    60                                  		
+    61 00000043 6643                    		inc bx	
+    62 00000045 6683FB7E                		cmp bx,126
+    63 00000049 75D7                    		jne .write
+    64                                          
+    65                                          
+    66                                  
+    67                                        final:
+    68                                          ; call fclose() to close the file
+    69                                          ; fclose(file_descriptor)
+    70 0000004B FF35[15000000]                  push dword [file_descriptor]
+    71 00000051 FF15[00000000]                  call [fclose]
+    72 00000057 83C404                          add esp, 4
+    73                                          ; exit(0)
+    74 0000005A 6A00                            push dword 0
+    75 0000005C FF15[00000000]                  call [exit]

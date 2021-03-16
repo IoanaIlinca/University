@@ -1,0 +1,1 @@
+ncal -M|awk -f weeks.awk

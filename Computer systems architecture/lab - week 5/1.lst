@@ -1,0 +1,44 @@
+     1                                  ; exercitiul 10, prima parte - fara semn
+     2                                  bits 32 
+     3                                  global  start 
+     4                                  
+     5                                  extern  exit 
+     6                                  import  exit msvcrt.dll
+     7                                        
+     8                                  segment  data use32 class=data 
+     9 00000000 0A                      	a db 10
+    10 00000001 0200                    	b dw 2
+    11 00000003 0F000000                	c dd 15
+    12 00000007 0A00000000000000        	d dq 10
+    13                                  segment  code use32 class=code 
+    14                                  start: 
+    15 00000000 A0[00000000]            	mov al, [a] ; mutam a in al
+    16 00000005 B400                    	mov ah, 0 ;conversie fara semn de la al la ax
+    17 00000007 66BA0000                    mov dx, 0 ;conversie fara semn de la ax la dx:ax
+    18                                      
+    19 0000000B 6652                        push dx
+    20 0000000D 6650                    	push ax
+    21 0000000F 58                      	pop eax ; eax = a
+    22 00000010 BA00000000                  mov edx, 0 ; conversie fara semn de la eax la edx:eax
+    23                                      
+    24 00000015 0305[07000000]              add eax, dword [d] ; CF = 1, in caz de overflow
+    25 0000001B 1315[0B000000]              adc edx, dword [d + 4] ; se adauga si CF, edx:eax = a + d
+    26                                      
+    27 00000021 0305[07000000]              add eax, dword [d] ; CF = 1, in caz de overflow
+    28 00000027 1315[0B000000]              adc edx, dword [d + 4] ; se adauga si CF, edx:eax = a + d + d
+    29                                      
+    30 0000002D 2B05[03000000]              sub eax, dword [c] ; edx:eax = (a + d + d) - c
+    31                                      
+    32 00000033 668B1D[01000000]            mov bx, [b] ; il mutam pe b in bx
+    33 0000003A 66031D[01000000]            add bx, [b] ; bx = b + b
+    34                                      
+    35 00000041 66B90000                    mov cx, 0 ; conversie fara semn de la bx la cx:bx
+    36                                      
+    37 00000045 6651                        push cx
+    38 00000047 6653                        push bx
+    39 00000049 5B                          pop ebx ; ebx = b + b
+    40                                      
+    41 0000004A 01D8                        add eax, ebx
+    42                                  	
+    43 0000004C 6A00                    	push dword 0 
+    44 0000004E FF15[00000000]          	call [exit]	

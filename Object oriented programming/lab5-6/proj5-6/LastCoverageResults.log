@@ -1,0 +1,21 @@
+[2020-04-13 12:02:34] [info] Start Program:
+Path:"E:\\Faculta\\sem 2\\oop\\lab5-6\\proj5-6\\Debug\\proj5-6.exe"
+Arguments:
+Working directory: "E:\\Faculta\\sem 2\\oop\\lab5-6\\proj5-6\\"
+Modules: Selected: E:\Faculta\sem 2\oop\lab5-6\proj5-6\Debug\proj5-6.exe Excluded: 
+Sources: Selected: E:\Faculta\sem 2\oop\lab5-6\proj5-6 Excluded: 
+Log Level: Normal
+Cover Children: 0
+Aggregate by file: 1
+Continue after C++ exception: 0
+Optimized build support: 0
+Export: binary C:\Users\User\AppData\Local\Temp\ebmsjhw3.dic 
+Input coverage: 
+Unified diff: 
+Excluded line regular expressions: 
+Substitute pdb source paths: 
+
+[2020-04-13 12:02:34] [info] Module: E:\Faculta\sem 2\oop\lab5-6\proj5-6\Debug\proj5-6.exe is selected because it matches selected pattern: E:\Faculta\sem 2\oop\lab5-6\proj5-6\Debug\proj5-6.exe
+[2020-04-13 12:02:34] [info] ----------------------------------------------------
+[2020-04-13 12:02:34] [info] Coverage binary generated in file: C:\Users\User\AppData\Local\Temp\ebmsjhw3.dic
+[2020-04-13 12:02:34] [info] ----------------------------------------------------

@@ -1,0 +1,7 @@
+Maria, carul Mare, 5, 4, 2.3
+Ioana, carul Mare, 2, 3, 1.4
+Ina, carul Mare, 1, 2, 4
+Mia, carul Mare, 2, 3, 5
+Alinca, carul Mare, 3, 4, 5
+Andromeda, carul Mic, 3, 4, 1.3
+Ana, ursa Mica, 2, 3, 1.4

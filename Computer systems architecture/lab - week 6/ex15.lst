@@ -1,0 +1,40 @@
+     1                                  ; our data is declared here (the variables needed by our program)
+     2                                  ; Given the words A and B, compute the doubleword C as follows:
+     3                                  ; the bits 0-2 of C have the value 0
+     4                                  ; the bits 3-5 of C have the value 1
+     5                                  ; the bits 6-9 of C are the same as the bits 11-14 of A
+     6                                  ; the bits 10-15 of C are the same as the bits 1-6 of B
+     7                                  ; the bits 16-31 of C have the value 1
+     8                                  
+     9                                  bits 32 
+    10                                  
+    11                                  global start        
+    12                                  
+    13                                  extern exit               
+    14                                  import exit msvcrt.dll
+    15                                  
+    16                                  segment data use32 class=data
+    17 00000000 0F00                        a dw 15
+    18 00000002 0200                        b dw 2
+    19 00000004 00000000                    c dd 0
+    20                                  
+    21                                  segment code use32 class=code
+    22                                      start:
+    23 00000000 31DB                            xor ebx, ebx ; ebx = 0
+    24 00000002 BB3800FFFF                      mov ebx, 11111111111111110000000000111000b  ; setam bitii de 1 si 0 care vor fi in c
+    25 00000007 31C0                            xor eax, eax ; eax = 0
+    26 00000009 66A1[00000000]                  mov ax, [a] ; ax = a = 15
+    27 0000000F B105                            mov cl, 5 ; cl = 5
+    28 00000011 66D3E8                          shr ax, cl ; bitii din ax = a se shifteaza la dreaota 5 pozitii, bitii din dreapta devin 0
+    29 00000014 98                              cwde ; eax = ax
+    30 00000015 01C3                            add ebx, eax ; muta in ebx bitii care ne trebuiau din a
+    31 00000017 31C0                            xor eax, eax ; eax = 0
+    32 00000019 66A1[02000000]                  mov ax, [b] ; ax = b
+    33 0000001F B109                            mov cl, 9  ; cl = 9
+    34 00000021 66D3E0                          shl ax, cl ; muta bitii din b pe pozitiile pe care trebuie sa fie, umple restul din dreapta cu 0
+    35 00000024 98                              cwde ; eax = ax (bitii din b)
+    36 00000025 01C3                            add ebx, eax ; adauga in ebx bitii din b
+    37 00000027 891D[04000000]                  mov [c], ebx ; c primeste valoarea 1
+    38                                          
+    39 0000002D 6A00                            push    dword 0      
+    40 0000002F FF15[00000000]                  call    [exit]      

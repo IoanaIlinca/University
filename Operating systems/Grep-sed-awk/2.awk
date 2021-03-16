@@ -1,0 +1,1 @@
+awk -F: -f groupUsers.awk passwd

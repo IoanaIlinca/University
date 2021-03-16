@@ -1,0 +1,5 @@
+1; 1; Ana; are 5 gheare; 3
+2; Cate gheare are bau bau?; Mihai; nu stiu, dar e foarte fioros; 2
+3; Ce mancam la cina?; Ioana; paste; 5
+4; 2; Mihai; peste; 2
+5; Ce mancam la cina?; Ana; pizza; 7

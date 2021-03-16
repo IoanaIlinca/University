@@ -1,0 +1,71 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, printf, scanf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll
+     9                                  import scanf msvcrt.dll
+    10                                  import printf msvcrt.dll
+    11                                  
+    12                                  ; our data is declared here (the variables needed by our program)
+    13                                  segment data use32 class=data
+    14 00000000 2564202A202564203D-         output1 db "%d * %d = %d", 0
+    14 00000009 20256400           
+    15 0000000D 25642A25643D256425-         output2 db "%d*%d=%d%d", 0
+    15 00000016 6400               
+    16 00000018 <res 00000004>              a resd 1
+    17 0000001C <res 00000004>              b resd 1
+    18 00000020 256400                      format db '%d', 0
+    19 00000023 42203D2000                  messageB db 'B = ', 0
+    20 00000028 41203D2000                  messageA db 'A = ', 0
+    21                                  
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25 00000000 68[28000000]                    push dword messageA
+    26 00000005 FF15[00000000]                  call [printf]
+    27 0000000B 83C404                          add esp, 4 * 1
+    28 0000000E 68[18000000]                    push dword a       ; ! address of n, not value
+    29 00000013 68[20000000]                    push dword format
+    30 00000018 FF15[00000000]                  call [scanf]
+    31 0000001E 83C408                          add esp, 4 * 2
+    32                                          
+    33 00000021 68[23000000]                    push dword messageB
+    34 00000026 FF15[00000000]                  call [printf]
+    35 0000002C 83C404                          add esp, 4 * 1
+    36 0000002F 68[1C000000]                    push dword b       ; ! address of n, not value
+    37 00000034 68[20000000]                    push dword format
+    38 00000039 FF15[00000000]                  call [scanf]       ; call function scanf for reading
+    39 0000003F 83C408                          add esp, 4 * 2     ; free parameters on the stack
+    40                                                             ; 4 = size of a dword; 2 = no of perameters
+    41                                                             
+    42 00000042 A1[18000000]                    mov eax, [a]
+    43 00000047 F72D[1C000000]                  imul dword [b]
+    44 0000004D 50                              push dword eax
+    45 0000004E 83FA00                          cmp edx, 0          ;id edx=0 we jump to skip and not add edx to 
+    46                                                             ; stack because that would end in printing a 0 in front of the product(stored completely in eax)
+    47                                          
+    48 00000051 741D                            je .skip
+    49 00000053 52                              push dword edx
+    50 00000054 FF35[1C000000]                  push dword [b]
+    51 0000005A FF35[18000000]                  push dword [a]
+    52 00000060 68[0D000000]                    push dword output2 ; ! on the stack is placed the address of the string, not its value
+    53 00000065 FF15[00000000]                  call [printf]      ; call function printf for printing 
+    54 0000006B 83C414                          add esp, 4 * 5
+    55 0000006E EB1A                            jmp .end
+    56                                          
+    57                                          .skip
+    57          ******************       warning: label alone on a line without a colon might be in error [-w+orphan-labels]
+    58 00000070 FF35[1C000000]                  push dword [b]
+    59 00000076 FF35[18000000]                  push dword [a]
+    60 0000007C 68[00000000]                    push dword output1
+    61 00000081 FF15[00000000]                  call [printf]
+    62 00000087 83C410                          add esp, 4 * 4
+    63                                          
+    64                                          .end     
+    64          ******************       warning: label alone on a line without a colon might be in error [-w+orphan-labels]
+    65                                          ; exit(0)
+    66 0000008A 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    67 0000008C FF15[00000000]                  call    [exit]       ; call exit to terminate the program

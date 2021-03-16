@@ -1,0 +1,33 @@
+6 40
+Maximum number of edges exceeded, the number of edges has been changed to: 30
+
+Source: 2 destination: 3 cost: 63
+Source: 5 destination: 4 cost: 17
+Source: 4 destination: 3 cost: 82
+Source: 2 destination: 1 cost: 59
+Source: 2 destination: 5 cost: 90
+Source: 3 destination: 4 cost: 28
+Source: 3 destination: 6 cost: 95
+Source: 6 destination: 5 cost: 87
+Source: 3 destination: 1 cost: 92
+Source: 4 destination: 2 cost: 52
+Source: 6 destination: 3 cost: 92
+Source: 5 destination: 3 cost: 30
+Source: 1 destination: 3 cost: 93
+Source: 5 destination: 2 cost: 58
+Source: 1 destination: 6 cost: 14
+Source: 4 destination: 5 cost: 52
+Source: 6 destination: 2 cost: 94
+Source: 4 destination: 6 cost: 39
+Source: 1 destination: 5 cost: 72
+Source: 5 destination: 1 cost: 16
+Source: 6 destination: 4 cost: 70
+Source: 2 destination: 4 cost: 57
+Source: 5 destination: 6 cost: 39
+Source: 3 destination: 2 cost: 8
+Source: 1 destination: 4 cost: 9
+Source: 4 destination: 1 cost: 27
+Source: 3 destination: 5 cost: 95
+Source: 6 destination: 1 cost: 93
+Source: 2 destination: 6 cost: 41
+Source: 1 destination: 2 cost: 100

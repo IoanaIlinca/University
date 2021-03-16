@@ -1,0 +1,22 @@
+7 20
+
+Source: 6 destination: 7 cost: 7
+Source: 2 destination: 5 cost: 81
+Source: 3 destination: 6 cost: 3
+Source: 7 destination: 2 cost: 38
+Source: 4 destination: 3 cost: 5
+Source: 2 destination: 1 cost: 49
+Source: 5 destination: 4 cost: 36
+Source: 6 destination: 3 cost: 91
+Source: 3 destination: 7 cost: 74
+Source: 7 destination: 6 cost: 1
+Source: 3 destination: 2 cost: 3
+Source: 5 destination: 3 cost: 18
+Source: 1 destination: 5 cost: 52
+Source: 2 destination: 7 cost: 66
+Source: 3 destination: 4 cost: 18
+Source: 2 destination: 6 cost: 41
+Source: 5 destination: 6 cost: 21
+Source: 5 destination: 2 cost: 92
+Source: 2 destination: 4 cost: 34
+Source: 6 destination: 2 cost: 42

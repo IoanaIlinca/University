@@ -1,0 +1,3 @@
+name 1, ursa Mica
+name 2, carul Mic
+name 3, carul Mare

@@ -1,0 +1,28 @@
+     1                                  bits 32 ; assembling for the 32 bits architecture
+     2                                  
+     3                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     4                                  global start        
+     5                                  
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit, scanf               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll
+     9                                  import scanf msvcrt.dll
+    10                                  
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 <res 00000004>              n resd 1
+    14 00000004 256400                      f db "%d", 0
+    15                                  
+    16                                  ; our code starts here
+    17                                  segment code use32 class=code
+    18                                      start:
+    19                                          ; scanf(f, v1, v2, ...)
+    20 00000000 68[00000000]                    push n
+    21 00000005 68[04000000]                    push f
+    22 0000000A FF15[00000000]                  call [scanf]
+    23 00000010 83C40C                          add esp, 4*3
+    24                                          
+    25                                          
+    26                                          ; exit(0)
+    27 00000013 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    28 00000015 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
